@@ -16,13 +16,13 @@
                     <!-- Token CSRF para proteger contra ataques CSRF -->
                     @csrf
                     <!-- Campo de entrada para el email -->
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <!-- Campo de entrada para la contraseña -->
-                    <div class="form-group">
-                        <label for="password">Password</label>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <!-- Botón para enviar el formulario -->

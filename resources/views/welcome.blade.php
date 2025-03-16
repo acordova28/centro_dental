@@ -6,7 +6,7 @@
 
 <!-- Define el contenido de la sección 'content' -->
 @section('content')
-    <div class="jumbotron">
+    <div class="py-5 bg-light">
         <!-- Muestra un mensaje de bienvenida con el nombre del usuario autenticado -->
         <h1 class="display-4">Welcome, {{ $user->name }}</h1>
         <p class="lead">Gracias por tu preferencia.</p>

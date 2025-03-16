@@ -16,23 +16,23 @@
                     <!-- Token CSRF para proteger contra ataques CSRF -->
                     @csrf
                     <!-- Campo de entrada para el nombre -->
-                    <div class="form-group">
-                        <label for="name">Name</label>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <!-- Campo de entrada para el email -->
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <!-- Campo de entrada para la contraseña -->
-                    <div class="form-group">
-                        <label for="password">Password</label>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <!-- Campo de entrada para la confirmación de la contraseña -->
-                    <div class="form-group">
-                        <label for="password_confirmation">Confirm Password</label>
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                     </div>
                     <!-- Botón para enviar el formulario -->
