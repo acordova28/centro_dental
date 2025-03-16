@@ -1,25 +1,34 @@
+<!-- Extiende la plantilla base 'app.blade.php' -->
 @extends('layouts.app')
 
+<!-- Define el título de la página -->
 @section('title', 'Login')
 
+<!-- Define el contenido de la sección 'content' -->
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">Login</div>
             <div class="card-body">
+                <!-- Formulario de inicio de sesión -->
                 <form method="POST" action="{{ route('login') }}">
+                    <!-- Token CSRF para proteger contra ataques CSRF -->
                     @csrf
+                    <!-- Campo de entrada para el email -->
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
+                    <!-- Campo de entrada para la contraseña -->
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
+                    <!-- Botón para enviar el formulario -->
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
+                <!-- Muestra los errores de validación si existen -->
                 @if ($errors->any())
                     <div class="alert alert-danger mt-3">
                         <ul>
