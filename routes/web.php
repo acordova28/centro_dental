@@ -9,6 +9,9 @@ use App\Http\Controllers\Auth\RegisterController;
 // Importa el WelcomeController desde el namespace App\Http\Controllers
 use App\Http\Controllers\WelcomeController;
 
+// Importa el HomeController desde el namespace App\Http\Controllers
+use App\Http\Controllers\HomeController;
+
 // Importa la clase Route desde el namespace Illuminate\Support\Facades
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +32,6 @@ Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome')->mid
 
 // Ruta para procesar el logout
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Ruta para la página de inicio
+Route::get('/', [HomeController::class, 'index'])->name('home');
