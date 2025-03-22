@@ -12,6 +12,9 @@ use App\Http\Controllers\WelcomeController;
 // Importa el HomeController desde el namespace App\Http\Controllers
 use App\Http\Controllers\HomeController;
 
+// Importa el PasswordController desde el namespace App\Http\Controllers
+use App\Http\Controllers\PasswordController;
+
 // Importa la clase Route desde el namespace Illuminate\Support\Facades
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +38,9 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 // Ruta para la página de inicio
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Ruta para mostrar el formulario de actualización de contraseña
+Route::get('password/change', [PasswordController::class, 'showChangePasswordForm'])->name('password.change')->middleware('auth');
+
+// Ruta para procesar la actualización de contraseña
+Route::post('password/change', [PasswordController::class, 'changePassword'])->name('password.update')->middleware('auth');
