@@ -1,3 +1,5 @@
+<!-- filepath: c:\xampp\htdocs\Laravel\consulta_dental\resources\views\welcome.blade.php -->
+
 <!-- Extiende la plantilla base 'app.blade.php' -->
 @extends('layouts.app')
 
@@ -12,6 +14,11 @@
         <div class="col-md-3 bg-light">
             <h4>Panel de Control</h4>
             <ul class="nav flex-column">
+                <!-- Enlace para reservar una cita -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('appointments.book') }}">Reservar Cita</a>
+                </li>
+                <!-- Enlace para actualizar la contraseña -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('password.change') }}">Actualizar Contraseña</a>
                 </li>
