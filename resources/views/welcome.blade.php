@@ -18,6 +18,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('appointments.book') }}">Reservar Cita</a>
                 </li>
+                <!-- Enlace para modificar una cita -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('appointments.edit', ['id' => 1]) }}">Modificar Cita</a>
+                </li>
                 <!-- Enlace para actualizar la contraseña -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('password.change') }}">Actualizar Contraseña</a>
@@ -30,6 +34,18 @@
                 <!-- Muestra un mensaje de bienvenida con el nombre del usuario autenticado -->
                 <h1 class="display-4">Welcome, {{ Auth::user()->name }}</h1>
                 <p class="lead">Gracias por tu preferencia.</p>
+
+                <!-- Muestra mensajes de error si existen -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <!-- Formulario para cerrar sesión -->
                 <form method="POST" action="{{ route('logout') }}">
                     <!-- Token CSRF para proteger contra ataques CSRF -->

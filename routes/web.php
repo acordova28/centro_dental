@@ -18,6 +18,7 @@ use App\Http\Controllers\PasswordController;
 // Importa la clase Route desde el namespace Illuminate\Support\Facades
 use Illuminate\Support\Facades\Route;
 
+// Importa el AppointmentController desde el namespace App\Http\Controllers
 use App\Http\Controllers\AppointmentController;
 
 // Ruta para mostrar el formulario de login
@@ -52,3 +53,13 @@ Route::get('appointments/book', [AppointmentController::class, 'showBookingForm'
 
 // Ruta para procesar la reserva de citas
 Route::post('appointments/book', [AppointmentController::class, 'bookAppointment'])->name('appointments.book.store')->middleware('auth');
+
+// Ruta para mostrar el formulario de modificación de citas
+Route::get('appointments/{id}/edit', [AppointmentController::class, 'edit'])
+    ->name('appointments.edit')
+    ->middleware('auth'); // Protegida por middleware de autenticación
+
+// Ruta para procesar la modificación de citas
+Route::post('appointments/{id}/update', [AppointmentController::class, 'update'])
+    ->name('appointments.update')
+    ->middleware('auth'); // Protegida por middleware de autenticación

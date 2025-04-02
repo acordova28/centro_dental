@@ -12,6 +12,24 @@
                 <div class="card-header">Reservar Cita</div>
 
                 <div class="card-body">
+                    <!-- Mostrar mensajes de error -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <!-- Mostrar mensaje de éxito -->
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     @if (isset($existingAppointment))
                         <!-- Mensaje si el usuario ya tiene una cita futura -->
                         <div class="alert alert-info">
@@ -19,7 +37,7 @@
                         </div>
                     @else
                         <!-- Formulario para reservar una cita -->
-                        <form method="POST" action="{{ route('appointments.book.store') }}">
+                        <form method="POST" action="{{ route('appointments.book.store') }}" id="booking-form">
                             @csrf
 
                             <!-- Campo para seleccionar la fecha -->
@@ -70,4 +88,18 @@
         </div>
     </div>
 </div>
+
+<!-- Script para mostrar mensaje de confirmación -->
+<script>
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        // Mostrar mensaje de confirmación
+        const confirmation = confirm(`¿Estás seguro de reservar la cita para el día ${date} a las ${time}?`);
+        if (!confirmation) {
+            e.preventDefault(); // Detener el envío del formulario si el usuario cancela
+        }
+    });
+</script>
 @endsection
