@@ -16,7 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->date('date');
             $table->time('time');
-            $table->timestamps();
+            $table->enum('status', ['activo', 'cancelado', 'atendido', 'expirado'])->default('activo');
+            $table->timestamp('rescheduled_at')->nullable(); // Fecha de modificación de la cita
+            $table->timestamps(); // Incluye created_at y updated_at
         });
     }
 
